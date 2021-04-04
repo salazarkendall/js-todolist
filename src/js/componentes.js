@@ -25,10 +25,22 @@ export const crearTodoHtml = (todo) => {
 
 // Eventos
 txtInput.addEventListener('keyup', (event) => {
+    // El numero 13 representa el Enter
     if (event.keyCode === 13 && txtInput.value.length > 0) {
         const nuevoTodo = new Todo(txtInput.value);
         todoList.nuevoTodo(nuevoTodo);
         crearTodoHtml(nuevoTodo);
         txtInput.value = '';
+    }
+});
+
+divTodoList.addEventListener('click', (event) => {
+    const nombreElemento = event.target.localName; // label, input, button
+    const todoElemento = event.target.parentElement.parentElement;
+    const todoId = todoElemento.getAttribute('data-id');
+
+    if (nombreElemento.includes('input')) {
+        todoList.marcarCompletado(todoId);
+        todoElemento.classList.toggle('completed');
     }
 });
