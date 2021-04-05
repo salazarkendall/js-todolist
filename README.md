@@ -1,6 +1,6 @@
-# Webpack Starter👨🏻‍💻
+# TODO APP👨🏻‍💻
 
-Esta es la configuracion por defecto de un proyecto web basico con webpack
+Esta es una app que nos permite crear tareas y administrarlas en una lista
 
 ### Notas:
 
