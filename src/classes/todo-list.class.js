@@ -1,3 +1,5 @@
+import { Todo } from "./todo.class";
+
 /**
  * Esta clase tiene las funcionabilidades basicas que tiene la lista de tareas
  * El constructor solamente tiene un arreglo vacio, que sera usado como repositorio de los todos que estaremos ingresando
@@ -37,8 +39,8 @@ export class TodoList {
     }
 
     cargarLocalStorage() {
-        this.todos = localStorage.getItem('todo')
-            ? JSON.parse(localStorage.getItem('todo'))
-            : [];
+        this.todos = localStorage.getItem('todo') ?
+            JSON.parse(localStorage.getItem('todo')) : [];
+        this.todos = this.todos.map(Todo.fromJson)
     }
 }
