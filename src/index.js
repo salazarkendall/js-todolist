@@ -5,6 +5,4 @@ import { crearTodoHtml } from './js/componentes';
 
 export const todoList = new TodoList();
 
-console.log(todoList.todos);
-
 todoList.todos.forEach(crearTodoHtml);

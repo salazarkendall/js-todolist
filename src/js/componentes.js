@@ -7,6 +7,8 @@ const clearCompleted = document.querySelector('.clear-completed');
 const ulFilters = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro')
 
+export const contador = document.querySelector('.todo-count')
+
 export const crearTodoHtml = (todo) => {
     const htmlTodo = `
     <li class="${todo.completado ? 'completed' : ''}" data-id="${todo.id}">

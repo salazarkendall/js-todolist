@@ -1,4 +1,5 @@
 import { Todo } from "./todo.class";
+import { contador } from "../js/componentes.js";
 
 /**
  * Esta clase tiene las funcionabilidades basicas que tiene la lista de tareas
@@ -7,16 +8,19 @@ import { Todo } from "./todo.class";
 export class TodoList {
     constructor() {
         this.cargarLocalStorage();
+        this.contarTodos()
     }
 
     nuevoTodo(todo) {
         this.todos.push(todo);
         this.guardarLocalStorage();
+        this.contarTodos()
     }
 
     eliminarTodo(id) {
         this.todos = this.todos.filter((todo) => todo.id != id);
         this.guardarLocalStorage();
+        this.contarTodos()
     }
 
     marcarCompletado(id) {
@@ -24,9 +28,11 @@ export class TodoList {
             if (todo.id == id) {
                 todo.completado = !todo.completado;
                 this.guardarLocalStorage();
+                this.contarTodos()
                 break;
             }
         }
+
     }
 
     borrarCompletados() {
@@ -42,5 +48,16 @@ export class TodoList {
         this.todos = localStorage.getItem('todo') ?
             JSON.parse(localStorage.getItem('todo')) : [];
         this.todos = this.todos.map(Todo.fromJson)
+    }
+
+    contarTodos() {
+        let pendientes = 0;
+        let tempContador = contador.firstElementChild
+        for (const todo of this.todos) {
+            if (!todo.completado) {
+                pendientes++
+            }
+        }
+        tempContador.innerHTML = pendientes
     }
 }
