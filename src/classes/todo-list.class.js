@@ -2,8 +2,8 @@ import { Todo } from "./todo.class";
 import { contador } from "../js/componentes.js";
 
 /**
- * Esta clase tiene las funcionabilidades basicas que tiene la lista de tareas
- * El constructor solamente tiene un arreglo vacio, que sera usado como repositorio de los todos que estaremos ingresando
+ * Esta clase tiene un array de todos, sirve como un repositorio en el que guardaremos los todos
+ * Ademas de las funcionabilidades basicas que tiene la lista de tareas
  */
 export class TodoList {
     constructor() {

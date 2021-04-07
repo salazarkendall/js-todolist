@@ -1,3 +1,7 @@
+/**
+ * Esta clase solamente contiene las referencias al html y los listeners necesarios para cada elemento
+ */
+
 import { Todo } from '../classes';
 import { todoList } from '../index';
 
@@ -28,7 +32,7 @@ export const crearTodoHtml = (todo) => {
     return div.firstElementChild;
 };
 
-// Eventos
+// Eventos para cada uno de los elementos
 txtInput.addEventListener('keyup', (event) => {
     // El numero 13 representa el Enter
     if (event.keyCode === 13 && txtInput.value.length > 0) {
